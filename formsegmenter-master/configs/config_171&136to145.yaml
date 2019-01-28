@@ -1,0 +1,32 @@
+network:
+  sol:
+    base0: 16 #architecture dependant - don't change unless you understand the network
+    base1: 16
+
+pretraining:
+  training_set:
+    img_folder: "other_forms/trains"
+    json_folder: "other_forms/trains"
+    file_list: "other_forms/trains/171&136_tdata.json"
+    border: "yes"
+
+  validation_set:
+    img_folder: "other_forms/145"
+    json_folder: "other_forms/trains"
+    file_list: "other_forms/trains/171&136_vdata.json"
+
+  sol:
+    alpha_alignment: 0.1
+    alpha_backprop: 0.1
+    learning_rate: 0.0001 #pyyaml bug: no scientific notation
+    crop_params:
+       prob_label: null
+       crop_size: 256
+    training_rescale_range: [1792, 2304]
+    validation_rescale_range: [2048,2048] #Don't validate on random range
+    batch_size: 1
+    images_per_epoch: 1000
+
+  snapshot_path: "snapshots/snapshots_171&136/init"
+
+evaluation: {columns: 15, output_path: 171&136to145_segments.tsv, rows: 45}

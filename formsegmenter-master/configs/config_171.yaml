@@ -1,0 +1,17 @@
+evaluation: {columns: 5, output_path: 171_segments.tsv, rows: 15}
+network:
+  sol: {base0: 16, base1: 16}
+pretraining:
+  snapshot_path: snapshots/snapshots_171/init
+  sol:
+    alpha_alignment: 0.1
+    alpha_backprop: 0.1
+    batch_size: 1
+    crop_params: {crop_size: 256, prob_label: null}
+    images_per_epoch: 1000
+    learning_rate: 0.0001
+    training_rescale_range: [1792, 2304]
+    validation_rescale_range: [2048, 2048]
+  training_set: {border: 'yes', file_list: forms/trains/171_tdata.json, img_folder: forms,
+    json_folder: forms/trains}
+  validation_set: {file_list: forms/trains/171_vdata.json, img_folder: forms, json_folder: forms/trains}

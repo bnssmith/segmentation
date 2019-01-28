@@ -1,0 +1,18 @@
+evaluation: {columns: 15, output_path: 142_segments.tsv, rows: 42}
+network:
+  sol: {base0: 16, base1: 16}
+pretraining:
+  snapshot_path: snapshots/snapshots_142/init
+  sol:
+    alpha_alignment: 0.1
+    alpha_backprop: 0.1
+    batch_size: 1
+    crop_params: {crop_size: 256, prob_label: null}
+    images_per_epoch: 1000
+    learning_rate: 0.0001
+    training_rescale_range: [1792, 2304]
+    validation_rescale_range: [2048, 2048]
+  training_set: {border: 'yes', file_list: full_forms/trains/142_tdata.json, img_folder: full_forms,
+    json_folder: full_forms}
+  validation_set: {file_list: full_forms/trains/142_vdata.json, img_folder: full_forms,
+    json_folder: full_forms}
